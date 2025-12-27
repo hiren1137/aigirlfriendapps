@@ -2,15 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import apps from '../../data/apps.json';
 
-// Generate all 2-app comparison combinations
+// Generate all 2-app comparison combinations with alphabetical URL ordering
 export async function getStaticPaths() {
   const comparisons = [];
   
-  // Generate top comparison pages (all combinations of 2)
+  // Generate comparison pages (alphabetical ordering for consistent URLs)
   for (let i = 0; i < apps.length; i++) {
     for (let j = i + 1; j < apps.length; j++) {
-      const app1 = apps[i];
-      const app2 = apps[j];
+      const appA = apps[i];
+      const appB = apps[j];
+      // Sort alphabetically for consistent URL ordering
+      const [app1, app2] = [appA, appB].sort((a, b) => a.slug.localeCompare(b.slug));
       comparisons.push({
         params: { slugs: `${app1.slug}-vs-${app2.slug}` },
         props: { app1, app2 },
