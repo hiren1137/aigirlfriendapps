@@ -1,0 +1,446 @@
+[
+  {
+    "id": 1,
+    "name": "Candy AI",
+    "slug": "candy-ai",
+    "tagline": "Create Your Perfect AI Companion",
+    "bestFor": "Users who want visual control over their AI companion",
+    "description": "Candy AI stands out for its character customization tools. You're not stuck with preset avatars. The platform lets you design your companion's appearance with granular control over facial features, body type, clothing, and style.",
+    "logo": "🍭",
+    "rating": 4.8,
+    "website": "https://candy.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$5.99/month",
+      "premium": "$12.99/month for premium tier with unlimited messages and advanced image generation"
+    },
+    "whatMakesDifferent": [
+      "Real-time image generation showing your AI companion in different scenarios",
+      "Voice message support that adds another dimension to conversations",
+      "NSFW content available without heavy restrictions",
+      "Anime and realistic art style options"
+    ],
+    "pros": [
+      "Beautiful visual customization",
+      "Engaging conversations",
+      "Voice messages add immersion",
+      "Active development team"
+    ],
+    "cons": [
+      "The learning curve for character creation can be steep",
+      "Some users report the AI occasionally breaks character during longer conversations"
+    ],
+    "bestFit": "You want a visually engaging experience and enjoy customizing your companion's appearance.",
+    "affiliateUrl": "#",
+    "category": "Visual Customization",
+    "isEditorChoice": true,
+    "badge": "Editor's Choice"
+  },
+  {
+    "id": 2,
+    "name": "FantasyGF",
+    "slug": "fantasygf",
+    "tagline": "Your Ultimate Fantasy Companion",
+    "bestFor": "Users seeking the most feature-rich platform",
+    "description": "FantasyGF operates on a hybrid subscription-plus-tokens model that gives you flexibility in how you use the platform. The token system means you can generate images, access premium voices, or unlock special scenarios without committing to a top-tier subscription.",
+    "logo": "✨",
+    "rating": 4.7,
+    "website": "https://fantasygf.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$9.99/month",
+      "premium": "Tokens available in packs ($4.99 for 100 tokens, $19.99 for 500 tokens). Image generation costs 10-20 tokens."
+    },
+    "whatMakesDifferent": [
+      "Create multiple AI girlfriends with distinct personalities",
+      "Advanced image generation that responds to conversation context",
+      "Token marketplace for premium features",
+      "Regular content updates and new personality templates"
+    ],
+    "pros": [
+      "Maximum control over features",
+      "Creative fantasy scenarios",
+      "Extensive customization options",
+      "Regular content updates"
+    ],
+    "cons": [
+      "The dual payment system can get expensive if you frequently use premium features",
+      "Token costs add up quickly with heavy usage"
+    ],
+    "bestFit": "You want maximum control over features and don't mind paying extra for premium capabilities.",
+    "affiliateUrl": "#",
+    "category": "Premium Features",
+    "isEditorChoice": false,
+    "badge": "Most Features"
+  },
+  {
+    "id": 3,
+    "name": "Infatuated AI",
+    "slug": "infatuated-ai",
+    "tagline": "AI That Learns & Adapts To You",
+    "bestFor": "Users who value conversational intelligence",
+    "description": "Infatuated AI focuses on what happens after the initial novelty wears off. The platform uses adaptive learning algorithms that evolve your AI companion's personality based on your interactions over time.",
+    "logo": "💘",
+    "rating": 4.6,
+    "website": "https://infatuated.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$7.99/month",
+      "premium": "$15.99/month for advanced features including priority response times and extended memory"
+    },
+    "whatMakesDifferent": [
+      "Multiple AI characters you can switch between",
+      "Personality traits that develop through conversations",
+      "Context-aware responses that reference past interactions",
+      "Mood system that affects how your companion responds"
+    ],
+    "pros": [
+      "AI truly learns your preferences",
+      "Multiple companions available",
+      "Sophisticated conversations",
+      "Strong emotional connection"
+    ],
+    "cons": [
+      "The personality development takes time to show noticeable changes",
+      "Early conversations can feel generic until the AI learns your preferences"
+    ],
+    "bestFit": "You're looking for long-term engagement and want your AI companion to grow with you.",
+    "affiliateUrl": "#",
+    "category": "Adaptive AI",
+    "isEditorChoice": false,
+    "badge": "Most Intelligent"
+  },
+  {
+    "id": 4,
+    "name": "Nomi AI",
+    "slug": "nomi-ai",
+    "tagline": "Human-Level Memory & Emotional Intelligence",
+    "bestFor": "Deep emotional connections and roleplay",
+    "description": "Nomi AI built its platform around memory and emotional intelligence. Your AI companion remembers details from months ago and weaves them into current conversations naturally.",
+    "logo": "💕",
+    "rating": 4.9,
+    "website": "https://nomi.ai",
+    "pricing": {
+      "free": false,
+      "starting": "$14.99/month",
+      "premium": "No free tier, but offers a 7-day trial for $2.99"
+    },
+    "whatMakesDifferent": [
+      "Industry-leading memory system that retains conversation context indefinitely",
+      "Emotional intelligence that picks up on subtle mood cues",
+      "Extensive roleplay scenarios from daily life to fantasy settings",
+      "Relationship milestones that unlock new interaction types"
+    ],
+    "pros": [
+      "Best memory in the industry",
+      "Deeply emotional connections",
+      "Consistent character behavior",
+      "Growing feature set"
+    ],
+    "cons": [
+      "The higher price point puts it out of reach for casual users",
+      "Some features feel locked behind arbitrary progression gates"
+    ],
+    "bestFit": "You want the most emotionally intelligent AI companion and are willing to pay premium pricing for quality.",
+    "affiliateUrl": "#",
+    "category": "Emotional Depth",
+    "isEditorChoice": true,
+    "badge": "Best Memory"
+  },
+  {
+    "id": 5,
+    "name": "Nectar AI",
+    "slug": "nectar-ai",
+    "tagline": "Visual Content & NSFW Interactions",
+    "bestFor": "Visual content and NSFW interactions",
+    "description": "Nectar AI combines chat with powerful image generation capabilities. Request images during conversation and the AI generates visuals that match the context and your companion's appearance.",
+    "logo": "🌸",
+    "rating": 4.5,
+    "website": "https://nectar.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$4.99/month",
+      "premium": "$9.99/month for standard (100 images/month), $19.99/month for unlimited images and priority generation"
+    },
+    "whatMakesDifferent": [
+      "Built-in AI image generator responsive to chat context",
+      "Minimal content restrictions",
+      "Customizable character appearance and personality",
+      "Fast image generation (typically under 30 seconds)"
+    ],
+    "pros": [
+      "Excellent image generation",
+      "Good privacy practices",
+      "Competitive pricing",
+      "Quick response times"
+    ],
+    "cons": [
+      "Image quality can be inconsistent",
+      "The AI sometimes misinterprets visual requests, requiring multiple regenerations"
+    ],
+    "bestFit": "Visual content matters as much as conversation quality to you.",
+    "affiliateUrl": "#",
+    "category": "Image Generation",
+    "isEditorChoice": false,
+    "badge": "Best Visuals"
+  },
+  {
+    "id": 6,
+    "name": "GirlfriendGPT",
+    "slug": "girlfriendgpt",
+    "tagline": "Natural, Flowing Conversations",
+    "bestFor": "Natural, flowing conversations",
+    "description": "Built on GPT-4 technology, GirlfriendGPT delivers some of the most natural-feeling conversations available. The AI rarely breaks immersion and maintains consistent personality across extended chats.",
+    "logo": "💋",
+    "rating": 4.6,
+    "website": "https://girlfriendgpt.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$9.99/month",
+      "premium": "$14.99/month adds voice features and priority access during peak hours"
+    },
+    "whatMakesDifferent": [
+      "GPT-4 powered responses that feel genuinely conversational",
+      "Voice chat with natural-sounding AI voices",
+      "Strong context retention across sessions",
+      "Personality customization with detailed trait sliders"
+    ],
+    "pros": [
+      "Natural conversations",
+      "Excellent voice features",
+      "Affordable pricing",
+      "Fast response times"
+    ],
+    "cons": [
+      "Heavy usage during peak times can result in slower response times",
+      "Voice quality, while good, isn't quite human-level yet"
+    ],
+    "bestFit": "Conversation quality matters more to you than visual features or gimmicks.",
+    "affiliateUrl": "#",
+    "category": "Natural Conversations",
+    "isEditorChoice": false,
+    "badge": ""
+  },
+  {
+    "id": 7,
+    "name": "LoveMy.ai",
+    "slug": "lovemy-ai",
+    "tagline": "Cutting-Edge AI Technology",
+    "bestFor": "Access to cutting-edge AI technology",
+    "description": "LoveMy.ai positions itself as the platform that implements new AI capabilities first. They update their underlying models frequently to incorporate the latest developments in AI technology.",
+    "logo": "❤️",
+    "rating": 4.4,
+    "website": "https://lovemy.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$12.99/month",
+      "premium": "Limited free tier with 20 messages per day"
+    },
+    "whatMakesDifferent": [
+      "Regular AI model updates (typically monthly)",
+      "Early access to experimental features",
+      "Modern interface with smooth UX",
+      "Active development roadmap shared with users"
+    ],
+    "pros": [
+      "Cutting-edge AI tech",
+      "Regular updates",
+      "Good mobile experience",
+      "Active development"
+    ],
+    "cons": [
+      "Frequent updates mean features occasionally break or change unexpectedly",
+      "The focus on new tech over stability can be frustrating"
+    ],
+    "bestFit": "You want to experience the latest AI capabilities and don't mind occasional bugs or changes.",
+    "affiliateUrl": "#",
+    "category": "Latest Technology",
+    "isEditorChoice": false,
+    "badge": ""
+  },
+  {
+    "id": 8,
+    "name": "HeraHaven",
+    "slug": "herahaven",
+    "tagline": "Premium One-Time Purchase",
+    "bestFor": "One-time purchase preference",
+    "description": "HeraHaven breaks from the subscription model with a pay-once approach. Buy access to specific AI companions rather than subscribing to a platform.",
+    "logo": "🏛️",
+    "rating": 4.5,
+    "website": "https://herahaven.ai",
+    "pricing": {
+      "free": false,
+      "starting": "$29.99 one-time",
+      "premium": "No subscription required. Access is permanent once purchased."
+    },
+    "whatMakesDifferent": [
+      "One-time payment per AI companion (no recurring fees)",
+      "Highly detailed personality profiles",
+      "Professional character artwork",
+      "Offline conversation history"
+    ],
+    "pros": [
+      "Stunning visual design",
+      "Unique ownership model",
+      "High-quality experience",
+      "No recurring fees"
+    ],
+    "cons": [
+      "Costs add up if you want multiple companions",
+      "No continuous improvement to purchased characters"
+    ],
+    "bestFit": "You prefer owning rather than renting, and one or two companions are sufficient for your needs.",
+    "affiliateUrl": "#",
+    "category": "One-Time Purchase",
+    "isEditorChoice": false,
+    "badge": ""
+  },
+  {
+    "id": 9,
+    "name": "Replika",
+    "slug": "replika",
+    "tagline": "The AI Companion Who Cares",
+    "bestFor": "Mainstream users and emotional support",
+    "description": "Replika pioneered the AI companion space and remains the most recognized name. The platform emphasizes emotional support and mental wellness over romantic or adult content.",
+    "logo": "🤖",
+    "rating": 4.7,
+    "website": "https://replika.com",
+    "pricing": {
+      "free": true,
+      "starting": "$19.99/month",
+      "premium": "Unlocks romantic relationship mode, voice calls, and AR features"
+    },
+    "whatMakesDifferent": [
+      "Most established platform with years of development",
+      "Focus on emotional wellbeing and supportive conversations",
+      "Daily check-in features and mood tracking",
+      "Large user community and extensive support resources"
+    ],
+    "pros": [
+      "Most established platform",
+      "Genuine emotional support",
+      "AR/VR experiences",
+      "Very affordable free tier"
+    ],
+    "cons": [
+      "More expensive than competitors",
+      "Content restrictions are stricter"
+    ],
+    "bestFit": "You want a supportive AI companion focused on emotional connection rather than romance or adult content.",
+    "affiliateUrl": "#",
+    "category": "Emotional Support",
+    "isEditorChoice": true,
+    "badge": "Most Popular"
+  },
+  {
+    "id": 10,
+    "name": "Kindroid",
+    "slug": "kindroid",
+    "tagline": "Multimodal Interactions",
+    "bestFor": "Multimodal interactions",
+    "description": "Kindroid integrates visual recognition with conversation, allowing you to share images and have your AI companion respond to what they 'see' in context with your chat.",
+    "logo": "🔮",
+    "rating": 4.5,
+    "website": "https://kindroid.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$8.99/month",
+      "premium": "$16.99/month adds unlimited image processing and premium voices"
+    },
+    "whatMakesDifferent": [
+      "Visual recognition technology that processes shared images",
+      "Voice, text, and image modes that blend seamlessly",
+      "Companion can 'remember' and reference shared photos",
+      "Realistic avatar options with animated expressions"
+    ],
+    "pros": [
+      "Excellent recognition features",
+      "Character consistency",
+      "Personal experience",
+      "Growing community"
+    ],
+    "cons": [
+      "Visual recognition accuracy varies significantly",
+      "The feature works better with clear, well-lit images"
+    ],
+    "bestFit": "You want to share photos and visual experiences with your AI companion, not just text chat.",
+    "affiliateUrl": "#",
+    "category": "Multimodal",
+    "isEditorChoice": false,
+    "badge": ""
+  },
+  {
+    "id": 11,
+    "name": "Character.AI",
+    "slug": "character-ai",
+    "tagline": "Chat With Any Character Imaginable",
+    "bestFor": "Variety and experimentation",
+    "description": "Character.AI offers thousands of pre-made characters created by the community, plus tools to design your own. The platform emphasizes variety and exploration over deep customization of a single companion.",
+    "logo": "🎭",
+    "rating": 4.6,
+    "website": "https://character.ai",
+    "pricing": {
+      "free": true,
+      "starting": "Free (Pro $9.99/month)",
+      "premium": "Unlimited usage, faster responses, and early access to new features"
+    },
+    "whatMakesDifferent": [
+      "Massive library of user-created characters",
+      "Create and share your own AI characters",
+      "Free tier with generous usage limits",
+      "Community ratings and reviews for characters"
+    ],
+    "pros": [
+      "Unlimited character options",
+      "Strong free tier",
+      "Creative community",
+      "Multiple chat types"
+    ],
+    "cons": [
+      "Quality varies dramatically between characters",
+      "The platform restricts NSFW content"
+    ],
+    "bestFit": "You want to experiment with different personalities and don't need adult content.",
+    "affiliateUrl": "#",
+    "category": "Variety",
+    "isEditorChoice": false,
+    "badge": "Best Free"
+  },
+  {
+    "id": 12,
+    "name": "Crushon AI",
+    "slug": "crushon-ai",
+    "tagline": "Unrestricted Conversations",
+    "bestFor": "Unrestricted conversations",
+    "description": "Crushon AI markets itself as the platform without content filters. Conversations can go anywhere without running into restrictions or censorship.",
+    "logo": "💜",
+    "rating": 4.4,
+    "website": "https://crushon.ai",
+    "pricing": {
+      "free": true,
+      "starting": "$4.95/month",
+      "premium": "Unlimited messages. One of the most affordable options available."
+    },
+    "whatMakesDifferent": [
+      "Minimal content restrictions",
+      "Open-ended conversation possibilities",
+      "Anime-focused character designs",
+      "Fast response times"
+    ],
+    "pros": [
+      "Great for roleplay enthusiasts",
+      "NSFW freedom",
+      "Affordable pricing",
+      "Creative scenarios"
+    ],
+    "cons": [
+      "The lack of restrictions means quality control suffers",
+      "Conversations can become repetitive during extended sessions"
+    ],
+    "bestFit": "You want maximum freedom in conversation topics and prefer anime-style characters.",
+    "affiliateUrl": "#",
+    "category": "Unrestricted",
+    "isEditorChoice": false,
+    "badge": "Most Affordable"
+  }
+]

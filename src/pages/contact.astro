@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact Us | Top AI Girlfriend Apps">
+  <div class="contact-page">
+    <div class="container">
+      <div class="contact-content glass-card">
+        <h1>Get In <span class="gradient-text">Touch</span></h1>
+        <p class="contact-intro">Have questions, feedback, or want to submit your AI app for review? Reach out to us!</p>
+        
+        <div class="email-box">
+          <span class="email-icon">📧</span>
+          <div class="email-info">
+            <h2>Email Us</h2>
+            <a href="mailto:techjits.com@gmail.com" class="email-link">techjits.com@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-topics">
+          <h3>We're Happy to Help With:</h3>
+          <ul>
+            <li>📝 <strong>General inquiries</strong> - Questions about our reviews</li>
+            <li>🚀 <strong>App submissions</strong> - Want your AI app reviewed?</li>
+            <li>🤝 <strong>Partnerships</strong> - Business and affiliate inquiries</li>
+            <li>✍️ <strong>Content corrections</strong> - Found an error? Let us know</li>
+          </ul>
+        </div>
+        
+        <div class="response-note">
+          <p>⏱️ We typically respond within 24-48 hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl);
+    min-height: 100vh;
+  }
+  
+  .contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-3xl);
+    text-align: center;
+    background: #14141d;
+  }
+  
+  .contact-content h1 {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-md);
+  }
+  
+  .contact-intro {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .email-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: #1e131a;
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .email-icon {
+    font-size: 3rem;
+  }
+  
+  .email-info {
+    text-align: left;
+  }
+  
+  .email-info h2 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .email-link {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-accent-pink);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .email-link:hover {
+    color: var(--color-accent-cyan);
+  }
+  
+  .contact-topics {
+    text-align: left;
+    padding: var(--space-xl);
+    background: #141418;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .contact-topics h3 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .contact-topics ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contact-topics li {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    padding: var(--space-sm) 0;
+    line-height: 1.6;
+  }
+  
+  .contact-topics strong {
+    color: var(--color-text-primary);
+  }
+  
+  .response-note {
+    padding: var(--space-md);
+    background: #0a1519;
+    border-radius: var(--radius-md);
+  }
+  
+  .response-note p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-accent-cyan);
+  }
+</style>

@@ -1,0 +1,535 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import apps from '../../data/apps.json';
+
+export async function getStaticPaths() {
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+interface Props {
+  app: typeof apps[0];
+}
+
+const { app } = Astro.props;
+
+// Find alternatives (other apps in similar category or top rated)
+const alternatives = apps
+  .filter(a => a.id !== app.id)
+  .sort((a, b) => b.rating - a.rating)
+  .slice(0, 4);
+
+// Generate stars
+const fullStars = Math.floor(app.rating);
+const hasHalfStar = app.rating % 1 >= 0.5;
+const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+// SEO
+const title = `${app.name}: Premium AI Girlfriend – Reviews, Pricing & Alternatives (2026)`;
+const description = `${app.name} review 2026. ${app.description.slice(0, 150)}... Compare pricing, features, pros & cons.`;
+const canonical = `https://topaigirlfriendapps.com/apps/${app.slug}`;
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  canonical={canonical}
+>
+  <article class="app-page">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/#reviews">Apps</a>
+        <span>/</span>
+        <span>{app.name}</span>
+      </nav>
+
+      <!-- Hero Section -->
+      <header class="app-hero">
+        <div class="app-hero-content">
+          <div class="app-logo-large">{app.logo}</div>
+          <div class="app-hero-info">
+            <div class="app-badges">
+              {app.badge && <span class="badge badge-pink">{app.badge}</span>}
+              <span class="badge badge-primary">{app.category}</span>
+            </div>
+            <h1>{app.name}: Premium AI Girlfriend – Reviews, Pricing & Alternatives</h1>
+            <p class="app-tagline">{app.tagline}</p>
+            <div class="app-meta">
+              <div class="rating-display">
+                <div class="star-rating">
+                  {Array(fullStars).fill(0).map(() => (
+                    <span class="star filled">★</span>
+                  ))}
+                  {hasHalfStar && <span class="star half">★</span>}
+                  {Array(emptyStars).fill(0).map(() => (
+                    <span class="star">★</span>
+                  ))}
+                </div>
+                <span class="rating-value">{app.rating}/5</span>
+              </div>
+              <span class="price-tag">{app.pricing.starting}</span>
+              {app.pricing.free && <span class="free-tag">Free Tier</span>}
+            </div>
+            <div class="hero-cta">
+              <a href={app.website} class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+                Visit {app.name} ↗
+              </a>
+              <a href="#alternatives" class="btn btn-secondary">View Alternatives</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="app-content">
+        <!-- Overview -->
+        <section class="content-section">
+          <h2>What is {app.name}?</h2>
+          <p class="lead-text">{app.description}</p>
+          <p><strong>Best for:</strong> {app.bestFor}</p>
+        </section>
+
+        <!-- Key Features -->
+        <section class="content-section">
+          <h2>What Makes {app.name} Different</h2>
+          <ul class="feature-list">
+            {app.whatMakesDifferent.map((feature) => (
+              <li>
+                <span class="check-icon">✓</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Pricing -->
+        <section class="content-section pricing-box">
+          <h2>{app.name} Pricing</h2>
+          <div class="price-display">
+            <span class="price-amount">{app.pricing.starting}</span>
+            {app.pricing.free && <span class="free-badge">Free Tier Available</span>}
+          </div>
+          <p>{app.pricing.premium}</p>
+        </section>
+
+        <!-- Pros & Cons -->
+        <section class="content-section">
+          <h2>Pros & Cons</h2>
+          <div class="pros-cons-grid">
+            <div class="pros-box">
+              <h3>👍 Pros</h3>
+              <ul>
+                {app.pros.map((pro) => (
+                  <li>{pro}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="cons-box">
+              <h3>👎 Cons</h3>
+              <ul>
+                {app.cons.map((con) => (
+                  <li>{con}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Verdict -->
+        <section class="content-section verdict-box">
+          <h2>Who Should Use {app.name}?</h2>
+          <p>{app.bestFit}</p>
+          <a href={app.website} class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Visit {app.name} ↗
+          </a>
+        </section>
+
+        <!-- Alternatives -->
+        <section class="content-section" id="alternatives">
+          <h2>{app.name} Alternatives</h2>
+          <p>Looking for other options? Check out these alternatives:</p>
+          <div class="alternatives-grid">
+            {alternatives.map((alt) => (
+              <a href={`/apps/${alt.slug}`} class="alt-card">
+                <span class="alt-logo">{alt.logo}</span>
+                <div class="alt-info">
+                  <h4>{alt.name}</h4>
+                  <div class="alt-meta">
+                    <span class="alt-rating">★ {alt.rating}</span>
+                    <span class="alt-price">{alt.pricing.starting}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div class="compare-cta">
+            <a href={`/compare/${app.slug}-vs-${alternatives[0].slug}`} class="btn btn-secondary">
+              Compare {app.name} vs {alternatives[0].name} →
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .app-page {
+    padding: calc(80px + var(--space-2xl)) 0 var(--space-4xl);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2xl);
+    color: var(--color-text-muted);
+  }
+  
+  .breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    color: var(--color-accent-pink);
+  }
+
+  /* Hero */
+  .app-hero {
+    background: #16161f;
+    border: 1px solid #24242c;
+    border-radius: var(--radius-2xl);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .app-hero-content {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: flex-start;
+  }
+  
+  @media (max-width: 768px) {
+    .app-hero-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
+  .app-logo-large {
+    font-size: 5rem;
+    flex-shrink: 0;
+  }
+  
+  .app-badges {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .app-badges {
+      justify-content: center;
+    }
+  }
+  
+  .app-hero h1 {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+  }
+  
+  @media (max-width: 768px) {
+    .app-hero h1 {
+      font-size: var(--text-2xl);
+    }
+  }
+  
+  .app-tagline {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .app-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .app-meta {
+      justify-content: center;
+    }
+  }
+  
+  .rating-display {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  
+  .rating-value {
+    font-weight: 600;
+  }
+  
+  .price-tag {
+    font-weight: 700;
+    color: var(--color-accent-cyan);
+  }
+  
+  .free-tag {
+    font-size: var(--text-xs);
+    color: #22c55e;
+    background: #121f18;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-cta {
+      justify-content: center;
+    }
+  }
+
+  /* Content Sections */
+  .app-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .content-section {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .content-section h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .lead-text {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-md);
+  }
+  
+  .content-section p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+  
+  .content-section strong {
+    color: var(--color-accent-cyan);
+  }
+  
+  /* Feature List */
+  .feature-list {
+    list-style: none;
+    padding: var(--space-lg);
+    background: #142428;
+    border: 2px solid #1a4048;
+    border-radius: var(--radius-lg);
+  }
+  
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  
+  .check-icon {
+    color: var(--color-accent-cyan);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  
+  /* Pricing Box */
+  .pricing-box {
+    padding: var(--space-2xl);
+    background: #1c1428;
+    border: 2px solid #3a2860;
+    border-radius: var(--radius-xl);
+  }
+  
+  .price-display {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+  
+  .price-amount {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .free-badge {
+    font-size: var(--text-sm);
+    color: #22c55e;
+    background: #121f18;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+  
+  /* Pros & Cons */
+  .pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+  
+  @media (max-width: 576px) {
+    .pros-cons-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .pros-box, .cons-box {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+  
+  .pros-box {
+    background: #142820;
+    border: 2px solid #1a5030;
+  }
+  
+  .cons-box {
+    background: #281414;
+    border: 2px solid #502020;
+  }
+  
+  .pros-box h3, .cons-box h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+  }
+  
+  .pros-box ul, .cons-box ul {
+    list-style: none;
+  }
+  
+  .pros-box li, .cons-box li {
+    color: var(--color-text-secondary);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    position: relative;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+  
+  .pros-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+  }
+  
+  .cons-box li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #f87171;
+  }
+  
+  /* Verdict Box */
+  .verdict-box {
+    padding: var(--space-2xl);
+    background: #241820;
+    border: 2px solid #503040;
+    border-radius: var(--radius-xl);
+    text-align: center;
+  }
+  
+  .verdict-box p {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xl);
+  }
+  
+  /* Alternatives */
+  .alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  
+  @media (max-width: 576px) {
+    .alternatives-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .alt-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: #16161f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  
+  .alt-card:hover {
+    border-color: rgba(255, 107, 157, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .alt-logo {
+    font-size: 2rem;
+  }
+  
+  .alt-info h4 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .alt-meta {
+    display: flex;
+    gap: var(--space-md);
+    font-size: var(--text-sm);
+  }
+  
+  .alt-rating {
+    color: #fbbf24;
+  }
+  
+  .alt-price {
+    color: var(--color-accent-cyan);
+  }
+  
+  .compare-cta {
+    text-align: center;
+  }
+</style>

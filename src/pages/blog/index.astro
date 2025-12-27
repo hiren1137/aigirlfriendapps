@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Blog | Top AI Girlfriend Apps - Latest News & Guides">
+  <div class="blog-page">
+    <div class="container">
+      <div class="blog-header">
+        <h1>Our <span class="gradient-text">Blog</span></h1>
+        <p>Stay updated with the latest news, guides, and insights about AI companions</p>
+      </div>
+      
+      <div class="coming-soon glass-card">
+        <div class="coming-soon-icon">📝</div>
+        <h2>Coming Soon!</h2>
+        <p>We're working on exciting content for you. Our blog will feature:</p>
+        <ul>
+          <li>🔍 In-depth AI girlfriend app comparisons</li>
+          <li>📖 Guides on getting the most from your AI companion</li>
+          <li>🆕 Latest app updates and new releases</li>
+          <li>💡 Tips for building meaningful AI relationships</li>
+          <li>🔒 Privacy and safety advice</li>
+        </ul>
+        <p class="subscribe-cta">Subscribe to our newsletter to be notified when we publish new content!</p>
+        <form class="newsletter-subscribe">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+      </div>
+
+      <div class="featured-apps">
+        <h2>While You Wait, Explore Our Top Picks</h2>
+        <div class="quick-links">
+          <a href="/#reviews" class="quick-link-card glass-card">
+            <span class="link-icon">⭐</span>
+            <span class="link-text">Read Reviews</span>
+          </a>
+          <a href="/#comparison" class="quick-link-card glass-card">
+            <span class="link-icon">📊</span>
+            <span class="link-text">Compare Apps</span>
+          </a>
+          <a href="/affiliate-disclosure" class="quick-link-card glass-card">
+            <span class="link-icon">ℹ️</span>
+            <span class="link-text">Affiliate Info</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding: calc(80px + var(--space-4xl)) 0 var(--space-4xl);
+    min-height: 100vh;
+  }
+  
+  .blog-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .blog-header h1 {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-md);
+  }
+  
+  .blog-header p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+  }
+  
+  .coming-soon {
+    max-width: 700px;
+    margin: 0 auto var(--space-4xl);
+    text-align: center;
+    padding: var(--space-3xl);
+  }
+  
+  .coming-soon-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .coming-soon h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-lg);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .coming-soon > p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .coming-soon ul {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto var(--space-xl);
+  }
+  
+  .coming-soon li {
+    color: var(--color-text-secondary);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .coming-soon li:last-child {
+    border-bottom: none;
+  }
+  
+  .subscribe-cta {
+    font-weight: 500;
+    color: var(--color-text-primary) !important;
+    margin-bottom: var(--space-lg) !important;
+  }
+  
+  .newsletter-subscribe {
+    display: flex;
+    gap: var(--space-sm);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-subscribe input {
+    flex: 1;
+    padding: var(--space-md);
+    background: var(--color-bg-card);
+    border: 1px solid #24242c;
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: var(--text-base);
+  }
+  
+  .newsletter-subscribe input::placeholder {
+    color: var(--color-text-muted);
+  }
+  
+  .newsletter-subscribe input:focus {
+    outline: none;
+    border-color: var(--color-accent-pink);
+  }
+  
+  .featured-apps {
+    text-align: center;
+  }
+  
+  .featured-apps h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .quick-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+  
+  .quick-link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl) var(--space-2xl);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+  
+  .quick-link-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 107, 157, 0.3);
+  }
+  
+  .link-icon {
+    font-size: 2rem;
+  }
+  
+  .link-text {
+    color: var(--color-text-primary);
+    font-weight: 500;
+  }
+</style>
+
+<script>
+  const form = document.querySelector('.newsletter-subscribe');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thanks! We\'ll notify you when new content is published.');
+    form.reset();
+  });
+</script>

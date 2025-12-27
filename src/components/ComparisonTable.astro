@@ -1,0 +1,206 @@
+---
+interface App {
+  id: number;
+  name: string;
+  slug: string;
+  logo: string;
+  rating: number;
+  bestFor: string;
+  website: string;
+  pricing: {
+    free: boolean;
+    starting: string;
+  };
+  category: string;
+  whatMakesDifferent: string[];
+  affiliateUrl: string;
+}
+
+interface Props {
+  apps: App[];
+}
+
+const { apps } = Astro.props;
+---
+
+<section class="comparison-section" id="comparison">
+  <div class="section-header">
+    <h2>Quick <span class="gradient-text">Comparison Table</span></h2>
+    <p>Compare all AI girlfriend apps at a glance to find your perfect match</p>
+  </div>
+  
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="sticky-col">App</th>
+          <th>Best For</th>
+          <th>Key Features</th>
+          <th>Starting Price</th>
+          <th>Free Tier</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {apps.map((app) => (
+          <tr>
+            <td class="sticky-col app-cell">
+              <a href={`/apps/${app.slug}`} class="app-link">
+                <span class="app-logo-small">{app.logo}</span>
+                <span class="app-name-small">{app.name}</span>
+              </a>
+            </td>
+            <td class="best-for-cell">{app.bestFor}</td>
+            <td class="feature-cell">{app.whatMakesDifferent[0]}</td>
+            <td class="price-cell">{app.pricing.starting}</td>
+            <td>
+              {app.pricing.free ? (
+                <span class="badge badge-success">Yes</span>
+              ) : (
+                <span class="badge badge-warning">No</span>
+              )}
+            </td>
+            <td class="action-cell">
+              <a href={app.website} class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
+                Visit ↗
+              </a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-xl);
+    border: 1px solid #24242c;
+    background: #16161f;
+    backdrop-filter: blur(20px);
+  }
+  
+  .comparison-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+  
+  .comparison-table thead {
+    background: #060610;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .comparison-table th {
+    padding: var(--space-lg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    letter-spacing: 1px;
+    border-bottom: 1px solid #24242c;
+    white-space: nowrap;
+  }
+  
+  .comparison-table td {
+    padding: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--color-text-primary);
+    vertical-align: middle;
+  }
+  
+  .comparison-table tbody tr {
+    transition: background var(--transition-fast);
+  }
+  
+  .comparison-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .sticky-col {
+    position: sticky;
+    left: 0;
+    background: #131320;
+    backdrop-filter: blur(10px);
+    z-index: 5;
+  }
+  
+  .app-cell {
+    min-width: 160px;
+  }
+  
+  .app-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+  }
+  
+  .app-link:hover {
+    color: var(--color-accent-pink);
+  }
+  
+  .app-logo-small {
+    font-size: var(--text-xl);
+  }
+  
+  .app-name-small {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .best-for-cell {
+    max-width: 180px;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+  }
+  
+  .price-cell {
+    font-weight: 600;
+    color: var(--color-accent-cyan);
+    white-space: nowrap;
+  }
+  
+  .feature-cell {
+    max-width: 220px;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+  }
+  
+  .action-cell {
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 768px) {
+    .table-wrapper {
+      margin: 0 calc(-1 * var(--space-lg));
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    
+    .comparison-table {
+      font-size: var(--text-xs);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: var(--space-md);
+    }
+  }
+</style>

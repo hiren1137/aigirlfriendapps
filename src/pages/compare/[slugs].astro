@@ -1,0 +1,621 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import apps from '../../data/apps.json';
+
+// Generate all 2-app comparison combinations
+export async function getStaticPaths() {
+  const comparisons = [];
+  
+  // Generate top comparison pages (all combinations of 2)
+  for (let i = 0; i < apps.length; i++) {
+    for (let j = i + 1; j < apps.length; j++) {
+      const app1 = apps[i];
+      const app2 = apps[j];
+      comparisons.push({
+        params: { slugs: `${app1.slug}-vs-${app2.slug}` },
+        props: { app1, app2 },
+      });
+    }
+  }
+  
+  return comparisons;
+}
+
+interface Props {
+  app1: typeof apps[0];
+  app2: typeof apps[0];
+}
+
+const { app1, app2 } = Astro.props;
+
+// SEO
+const title = `${app1.name} vs ${app2.name}: Which AI Girlfriend App is Better? (2026)`;
+const description = `Compare ${app1.name} vs ${app2.name}. See features, pricing, pros & cons side by side to find the best AI girlfriend app for you.`;
+const canonical = `https://topaigirlfriendapps.com/compare/${app1.slug}-vs-${app2.slug}`;
+
+// Determine winner in different categories
+const priceWinner = parseFloat(app1.pricing.starting.replace(/[^0-9.]/g, '')) <= parseFloat(app2.pricing.starting.replace(/[^0-9.]/g, '')) ? app1 : app2;
+const ratingWinner = app1.rating >= app2.rating ? app1 : app2;
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  canonical={canonical}
+>
+  <article class="compare-page">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Compare</span>
+        <span>/</span>
+        <span>{app1.name} vs {app2.name}</span>
+      </nav>
+
+      <!-- Hero -->
+      <header class="compare-hero">
+        <h1>{app1.name} vs {app2.name}: Which AI Girlfriend App is Better?</h1>
+        <p class="compare-subtitle">A detailed comparison to help you choose the right AI companion</p>
+      </header>
+
+      <!-- Quick Comparison -->
+      <section class="quick-compare">
+        <div class="compare-card">
+          <div class="compare-app">
+            <span class="app-emoji">{app1.logo}</span>
+            <h2>{app1.name}</h2>
+            <div class="app-rating">★ {app1.rating}</div>
+            <div class="app-price">{app1.pricing.starting}</div>
+            {app1.badge && <span class="badge badge-pink">{app1.badge}</span>}
+          </div>
+          
+          <div class="vs-divider">
+            <span>VS</span>
+          </div>
+          
+          <div class="compare-app">
+            <span class="app-emoji">{app2.logo}</span>
+            <h2>{app2.name}</h2>
+            <div class="app-rating">★ {app2.rating}</div>
+            <div class="app-price">{app2.pricing.starting}</div>
+            {app2.badge && <span class="badge badge-pink">{app2.badge}</span>}
+          </div>
+        </div>
+      </section>
+
+      <!-- Winner Summary -->
+      <section class="winner-summary">
+        <div class="winner-box">
+          <h3>Quick Verdict</h3>
+          <p>
+            <strong>{ratingWinner.name}</strong> has higher ratings ({ratingWinner.rating}/5), while 
+            <strong>{priceWinner.name}</strong> is more affordable at {priceWinner.pricing.starting}.
+          </p>
+        </div>
+      </section>
+
+      <!-- Detailed Comparison Table -->
+      <section class="comparison-table-section">
+        <h2>Feature Comparison</h2>
+        <div class="table-wrapper">
+          <table class="detail-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>{app1.name}</th>
+                <th>{app2.name}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Best For</td>
+                <td>{app1.bestFor}</td>
+                <td>{app2.bestFor}</td>
+              </tr>
+              <tr>
+                <td>Rating</td>
+                <td class={app1.rating >= app2.rating ? 'winner' : ''}>★ {app1.rating}</td>
+                <td class={app2.rating > app1.rating ? 'winner' : ''}>★ {app2.rating}</td>
+              </tr>
+              <tr>
+                <td>Starting Price</td>
+                <td>{app1.pricing.starting}</td>
+                <td>{app2.pricing.starting}</td>
+              </tr>
+              <tr>
+                <td>Free Tier</td>
+                <td>{app1.pricing.free ? '✓ Yes' : '✗ No'}</td>
+                <td>{app2.pricing.free ? '✓ Yes' : '✗ No'}</td>
+              </tr>
+              <tr>
+                <td>Category</td>
+                <td>{app1.category}</td>
+                <td>{app2.category}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Key Features Comparison -->
+      <section class="features-comparison">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-col">
+            <h3>{app1.name}</h3>
+            <ul>
+              {app1.whatMakesDifferent.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="feature-col">
+            <h3>{app2.name}</h3>
+            <ul>
+              {app2.whatMakesDifferent.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pros & Cons -->
+      <section class="pros-cons-comparison">
+        <h2>Pros & Cons</h2>
+        <div class="pros-cons-grid">
+          <div class="app-pros-cons">
+            <h3>{app1.name}</h3>
+            <div class="pros">
+              <h4>👍 Pros</h4>
+              <ul>
+                {app1.pros.map((pro) => (
+                  <li>{pro}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>👎 Cons</h4>
+              <ul>
+                {app1.cons.map((con) => (
+                  <li>{con}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div class="app-pros-cons">
+            <h3>{app2.name}</h3>
+            <div class="pros">
+              <h4>👍 Pros</h4>
+              <ul>
+                {app2.pros.map((pro) => (
+                  <li>{pro}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>👎 Cons</h4>
+              <ul>
+                {app2.cons.map((con) => (
+                  <li>{con}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Verdict -->
+      <section class="verdict-section">
+        <h2>Which One Should You Choose?</h2>
+        <div class="verdict-grid">
+          <div class="verdict-card">
+            <h3>Choose {app1.name} if:</h3>
+            <p>{app1.bestFit}</p>
+            <a href={app1.website} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Visit {app1.name} ↗
+            </a>
+          </div>
+          <div class="verdict-card">
+            <h3>Choose {app2.name} if:</h3>
+            <p>{app2.bestFit}</p>
+            <a href={app2.website} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Visit {app2.name} ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- More Comparisons -->
+      <section class="more-comparisons">
+        <h2>More Comparisons</h2>
+        <div class="more-links">
+          <a href={`/apps/${app1.slug}`}>Read full {app1.name} review →</a>
+          <a href={`/apps/${app2.slug}`}>Read full {app2.name} review →</a>
+          <a href="/#comparison">View all apps →</a>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .compare-page {
+    padding: calc(80px + var(--space-2xl)) 0 var(--space-4xl);
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2xl);
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+  }
+  
+  .breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    color: var(--color-accent-pink);
+  }
+
+  /* Hero */
+  .compare-hero {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .compare-hero h1 {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+  }
+  
+  @media (max-width: 768px) {
+    .compare-hero h1 {
+      font-size: var(--text-2xl);
+    }
+  }
+  
+  .compare-subtitle {
+    color: var(--color-text-secondary);
+    font-size: var(--text-lg);
+  }
+
+  /* Quick Compare */
+  .quick-compare {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .compare-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: #16161f;
+    border: 1px solid #24242c;
+    border-radius: var(--radius-2xl);
+    flex-wrap: wrap;
+  }
+  
+  .compare-app {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .app-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+  
+  .compare-app h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .app-rating {
+    color: #fbbf24;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .app-price {
+    color: var(--color-accent-cyan);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    font-weight: 800;
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+  }
+
+  /* Winner Summary */
+  .winner-summary {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .winner-box {
+    padding: var(--space-xl);
+    background: #1c1118;
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  
+  .winner-box h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent-pink);
+  }
+  
+  .winner-box p {
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+  
+  .winner-box strong {
+    color: var(--color-accent-cyan);
+  }
+
+  /* Comparison Table */
+  .comparison-table-section {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .comparison-table-section h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-xl);
+    border: 1px solid #24242c;
+  }
+  
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #16161f;
+  }
+  
+  .detail-table th,
+  .detail-table td {
+    padding: var(--space-lg);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .detail-table th {
+    background: #080810;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .detail-table td {
+    color: var(--color-text-secondary);
+  }
+  
+  .detail-table td.winner {
+    color: #22c55e;
+    font-weight: 600;
+  }
+
+  /* Features Comparison */
+  .features-comparison {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .features-comparison h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .feature-col {
+    padding: var(--space-xl);
+    background: #0f1a1f;
+    border: 1px solid #0a1519;
+    border-radius: var(--radius-lg);
+  }
+  
+  .feature-col h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    color: var(--color-accent-cyan);
+  }
+  
+  .feature-col ul {
+    list-style: none;
+  }
+  
+  .feature-col li {
+    color: var(--color-text-secondary);
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+  
+  .feature-col li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-cyan);
+  }
+
+  /* Pros & Cons */
+  .pros-cons-comparison {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .pros-cons-comparison h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+  
+  .pros-cons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+  
+  @media (max-width: 768px) {
+    .pros-cons-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .app-pros-cons {
+    padding: var(--space-xl);
+    background: #16161f;
+    border: 1px solid #24242c;
+    border-radius: var(--radius-lg);
+  }
+  
+  .app-pros-cons h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+  
+  .app-pros-cons h4 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .app-pros-cons .pros {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .app-pros-cons ul {
+    list-style: none;
+  }
+  
+  .app-pros-cons li {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    position: relative;
+  }
+  
+  .pros li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+  }
+  
+  .cons li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #f87171;
+  }
+
+  /* Verdict */
+  .verdict-section {
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .verdict-section h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+  
+  .verdict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+  
+  @media (max-width: 768px) {
+    .verdict-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .verdict-card {
+    padding: var(--space-xl);
+    background: #17121f;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  
+  .verdict-card h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+    color: var(--color-accent-purple);
+  }
+  
+  .verdict-card p {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* More Comparisons */
+  .more-comparisons {
+    text-align: center;
+  }
+  
+  .more-comparisons h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .more-links {
+    display: flex;
+    gap: var(--space-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .more-links a {
+    color: var(--color-accent-pink);
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+  
+  .more-links a:hover {
+    text-decoration: underline;
+  }
+</style>
