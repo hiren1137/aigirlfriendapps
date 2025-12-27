@@ -31,7 +31,7 @@ const { app1, app2 } = Astro.props;
 // SEO
 const title = `${app1.name} vs ${app2.name}: Which AI Girlfriend App is Better? (2026)`;
 const description = `Compare ${app1.name} vs ${app2.name}. See features, pricing, pros & cons side by side to find the best AI girlfriend app for you.`;
-const canonical = `https://topaigirlfriendapps.com/compare/${app1.slug}-vs-${app2.slug}`;
+const canonical = `https://topaigirlfriendapps.com/compare/${app1.slug}-vs-${app2.slug}/`;
 
 // Determine winner in different categories
 const priceWinner = parseFloat(app1.pricing.starting.replace(/[^0-9.]/g, '')) <= parseFloat(app2.pricing.starting.replace(/[^0-9.]/g, '')) ? app1 : app2;
