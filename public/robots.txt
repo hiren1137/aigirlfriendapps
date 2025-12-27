@@ -1,0 +1,10 @@
+# Robots.txt for topaigirlfriendapps.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://topaigirlfriendapps.com/sitemap-index.xml
+
+# Disallow admin/private areas (none for this site)
+# Disallow: /admin/
