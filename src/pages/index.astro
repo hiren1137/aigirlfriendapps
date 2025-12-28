@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AppCard from '../components/AppCard.astro';
-import ComparisonTable from '../components/ComparisonTable.astro';
-import apps from '../data/apps.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AppCard from "../components/AppCard.astro";
+import ComparisonTable from "../components/ComparisonTable.astro";
+import apps from "../data/apps.json";
 
 // Get top comparisons for interlinking
 const topComparisons = [
@@ -13,17 +13,18 @@ const topComparisons = [
 ];
 ---
 
-<BaseLayout title="Top AI Girlfriend Apps: 12 Best Virtual Companions Compared (2026)">
+<BaseLayout title="Best AI Girlfriend Apps and Websites">
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">
-          Top AI Girlfriend Apps <br/>
+          Top AI Girlfriend Apps <br />
           <span class="gradient-text">and Websites</span>
         </h1>
         <div class="hero-cta">
-          <a href="#comparison" class="btn btn-primary btn-lg">Compare Apps →</a>
+          <a href="#comparison" class="btn btn-primary btn-lg">Compare Apps →</a
+          >
           <a href="#reviews" class="btn btn-secondary btn-lg">Read Reviews</a>
         </div>
       </div>
@@ -42,17 +43,24 @@ const topComparisons = [
         <h2>Popular <span class="gradient-text">Comparisons</span></h2>
       </div>
       <div class="comparisons-grid">
-        {topComparisons.map(({ app1, app2 }) => (
-          <a href={`/compare/${app1.slug}-vs-${app2.slug}`} class="compare-link-card">
-            <div class="compare-logos">
-              <span>{app1.logo}</span>
-              <span class="vs">vs</span>
-              <span>{app2.logo}</span>
-            </div>
-            <h3>{app1.name} vs {app2.name}</h3>
-            <span class="compare-arrow">Compare →</span>
-          </a>
-        ))}
+        {
+          topComparisons.map(({ app1, app2 }) => (
+            <a
+              href={`/compare/${app1.slug}-vs-${app2.slug}`}
+              class="compare-link-card"
+            >
+              <div class="compare-logos">
+                <span>{app1.logo}</span>
+                <span class="vs">vs</span>
+                <span>{app2.logo}</span>
+              </div>
+              <h3>
+                {app1.name} vs {app2.name}
+              </h3>
+              <span class="compare-arrow">Compare →</span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -65,9 +73,7 @@ const topComparisons = [
         <p>In-depth analysis of each AI girlfriend app</p>
       </div>
       <div class="reviews-grid">
-        {apps.map((app, index) => (
-          <AppCard app={app} rank={index + 1} />
-        ))}
+        {apps.map((app, index) => <AppCard app={app} rank={index + 1} />)}
       </div>
     </div>
   </section>
@@ -81,27 +87,50 @@ const topComparisons = [
       <div class="choose-grid">
         <div class="choose-item">
           <h3>💬 For Conversation Quality</h3>
-          <p><a href="/apps/girlfriendgpt">GirlfriendGPT</a> or <a href="/apps/nomi-ai">Nomi AI</a> offer the most natural interactions.</p>
+          <p>
+            <a href="/apps/girlfriendgpt">GirlfriendGPT</a> or <a
+              href="/apps/nomi-ai">Nomi AI</a
+            > offer the most natural interactions.
+          </p>
         </div>
         <div class="choose-item">
           <h3>🎨 For Visual Content</h3>
-          <p><a href="/apps/candy-ai">Candy AI</a> or <a href="/apps/nectar-ai">Nectar AI</a> provide the best image generation.</p>
+          <p>
+            <a href="/apps/candy-ai">Candy AI</a> or <a href="/apps/nectar-ai"
+              >Nectar AI</a
+            > provide the best image generation.
+          </p>
         </div>
         <div class="choose-item">
           <h3>🎭 For Variety</h3>
-          <p><a href="/apps/character-ai">Character.AI</a> gives you thousands of personalities to explore.</p>
+          <p>
+            <a href="/apps/character-ai">Character.AI</a> gives you thousands of personalities
+            to explore.
+          </p>
         </div>
         <div class="choose-item">
           <h3>💰 For Value</h3>
-          <p><a href="/apps/crushon-ai">Crushon AI</a> or <a href="/apps/nectar-ai">Nectar AI</a> offer features at the lowest prices.</p>
+          <p>
+            <a href="/apps/crushon-ai">Crushon AI</a> or <a
+              href="/apps/nectar-ai">Nectar AI</a
+            > offer features at the lowest prices.
+          </p>
         </div>
         <div class="choose-item">
           <h3>❤️ For Emotional Depth</h3>
-          <p><a href="/apps/replika">Replika</a> or <a href="/apps/nomi-ai">Nomi AI</a> focus on meaningful connections.</p>
+          <p>
+            <a href="/apps/replika">Replika</a> or <a href="/apps/nomi-ai"
+              >Nomi AI</a
+            > focus on meaningful connections.
+          </p>
         </div>
         <div class="choose-item">
           <h3>🔓 For No Restrictions</h3>
-          <p><a href="/apps/crushon-ai">Crushon AI</a> or <a href="/apps/nectar-ai">Nectar AI</a> have permissive content policies.</p>
+          <p>
+            <a href="/apps/crushon-ai">Crushon AI</a> or <a
+              href="/apps/nectar-ai">Nectar AI</a
+            > have permissive content policies.
+          </p>
         </div>
       </div>
     </div>
@@ -116,19 +145,33 @@ const topComparisons = [
       <div class="faq-grid">
         <details class="faq-item glass-card">
           <summary>Are AI girlfriend apps safe to use?</summary>
-          <p>Yes, reputable AI girlfriend apps prioritize user privacy and security. They use encryption to protect your conversations. Always check the privacy policy of any app you choose.</p>
+          <p>
+            Yes, reputable AI girlfriend apps prioritize user privacy and
+            security. They use encryption to protect your conversations. Always
+            check the privacy policy of any app you choose.
+          </p>
         </details>
         <details class="faq-item glass-card">
           <summary>How much do AI girlfriend apps cost?</summary>
-          <p>Pricing varies from <strong>$4.95 to $19.99 per month</strong>. Most apps offer free tiers with limited features.</p>
+          <p>
+            Pricing varies from <strong>$4.95 to $19.99 per month</strong>. Most
+            apps offer free tiers with limited features.
+          </p>
         </details>
         <details class="faq-item glass-card">
           <summary>Can AI companions remember conversations?</summary>
-          <p>Yes! Apps like <a href="/apps/nomi-ai">Nomi AI</a> have exceptional memory that retains context indefinitely.</p>
+          <p>
+            Yes! Apps like <a href="/apps/nomi-ai">Nomi AI</a> have exceptional memory
+            that retains context indefinitely.
+          </p>
         </details>
         <details class="faq-item glass-card">
           <summary>Can I customize my AI companion's appearance?</summary>
-          <p><a href="/apps/candy-ai">Candy AI</a> and <a href="/apps/fantasygf">FantasyGF</a> provide extensive visual customization options.</p>
+          <p>
+            <a href="/apps/candy-ai">Candy AI</a> and <a href="/apps/fantasygf"
+              >FantasyGF</a
+            > provide extensive visual customization options.
+          </p>
         </details>
       </div>
     </div>
@@ -139,7 +182,11 @@ const topComparisons = [
     <div class="container">
       <div class="disclosure-box">
         <h3>Affiliate Disclosure</h3>
-        <p>This site contains affiliate links. We may earn a commission when you sign up through our links at no extra cost to you. <a href="/affiliate-disclosure">Learn more</a></p>
+        <p>
+          This site contains affiliate links. We may earn a commission when you
+          sign up through our links at no extra cost to you. <a
+            href="/affiliate-disclosure">Learn more</a>
+        </p>
       </div>
     </div>
   </section>
@@ -153,55 +200,55 @@ const topComparisons = [
     overflow: hidden;
     text-align: center;
   }
-  
+
   .hero-content {
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .hero-title {
     font-size: var(--text-5xl);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--space-xl);
   }
-  
+
   @media (max-width: 768px) {
     .hero-title {
       font-size: var(--text-3xl);
     }
   }
-  
+
   .hero-cta {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   /* Popular Comparisons */
   .popular-comparisons {
     padding: var(--space-3xl) 0;
   }
-  
+
   .comparisons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-lg);
   }
-  
+
   @media (max-width: 992px) {
     .comparisons-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (max-width: 576px) {
     .comparisons-grid {
       grid-template-columns: 1fr;
     }
   }
-  
+
   .compare-link-card {
     display: flex;
     flex-direction: column;
@@ -213,12 +260,12 @@ const topComparisons = [
     text-decoration: none;
     transition: all var(--transition-base);
   }
-  
+
   .compare-link-card:hover {
     border-color: rgba(255, 107, 157, 0.3);
     transform: translateY(-4px);
   }
-  
+
   .compare-logos {
     display: flex;
     align-items: center;
@@ -226,79 +273,79 @@ const topComparisons = [
     font-size: 2rem;
     margin-bottom: var(--space-md);
   }
-  
+
   .compare-logos .vs {
     font-size: var(--text-sm);
     color: var(--color-accent-pink);
     font-weight: 600;
   }
-  
+
   .compare-link-card h3 {
     font-size: var(--text-sm);
     color: var(--color-text-primary);
     margin-bottom: var(--space-sm);
     text-align: center;
   }
-  
+
   .compare-arrow {
     font-size: var(--text-xs);
     color: var(--color-accent-cyan);
   }
-  
+
   /* Reviews Section */
   .reviews-grid {
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
   }
-  
+
   /* Choose Section */
   .choose-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
   }
-  
+
   @media (max-width: 992px) {
     .choose-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (max-width: 576px) {
     .choose-grid {
       grid-template-columns: 1fr;
     }
   }
-  
+
   .choose-item {
     padding: var(--space-xl);
     background: #16161f;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-xl);
   }
-  
+
   .choose-item h3 {
     font-size: var(--text-base);
     margin-bottom: var(--space-sm);
   }
-  
+
   .choose-item p {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin: 0;
   }
-  
+
   .choose-item a {
     color: var(--color-accent-cyan);
     text-decoration: none;
   }
-  
+
   .choose-item a:hover {
     text-decoration: underline;
   }
-  
+
   /* FAQ Section */
   .faq-grid {
     display: grid;
@@ -306,12 +353,12 @@ const topComparisons = [
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .faq-item {
     padding: 0;
     background: #16161f;
   }
-  
+
   .faq-item summary {
     padding: var(--space-lg) var(--space-xl);
     cursor: pointer;
@@ -321,22 +368,22 @@ const topComparisons = [
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .faq-item summary::-webkit-details-marker {
     display: none;
   }
-  
+
   .faq-item summary::after {
-    content: '+';
+    content: "+";
     font-size: var(--text-xl);
     color: var(--color-accent-pink);
     transition: transform var(--transition-base);
   }
-  
+
   .faq-item[open] summary::after {
     transform: rotate(45deg);
   }
-  
+
   .faq-item p {
     padding: 0 var(--space-xl) var(--space-lg);
     color: var(--color-text-secondary);
@@ -344,25 +391,25 @@ const topComparisons = [
     line-height: 1.8;
     margin: 0;
   }
-  
+
   .faq-item strong {
     color: var(--color-accent-cyan);
   }
-  
+
   .faq-item a {
     color: var(--color-accent-cyan);
     text-decoration: none;
   }
-  
+
   .faq-item a:hover {
     text-decoration: underline;
   }
-  
+
   /* Disclosure Section */
   .disclosure-section {
     padding: var(--space-2xl) 0;
   }
-  
+
   .disclosure-box {
     background: #1c1118;
     border: 1px solid rgba(255, 107, 157, 0.2);
@@ -372,19 +419,19 @@ const topComparisons = [
     max-width: 700px;
     margin: 0 auto;
   }
-  
+
   .disclosure-box h3 {
     font-size: var(--text-base);
     margin-bottom: var(--space-sm);
     color: var(--color-accent-pink);
   }
-  
+
   .disclosure-box p {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     margin: 0;
   }
-  
+
   .disclosure-box a {
     color: var(--color-accent-pink);
     text-decoration: none;
