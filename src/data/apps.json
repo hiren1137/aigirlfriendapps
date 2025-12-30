@@ -442,5 +442,79 @@
     "category": "Unrestricted",
     "isEditorChoice": false,
     "badge": "Most Affordable"
+  },
+  {
+    "id": 13,
+    "name": "OurDream.ai",
+    "slug": "ourdream-ai",
+    "tagline": "Photorealistic AI Companions & Deep Roleplay",
+    "bestFor": "Users seeking hyper-realistic visuals and deep roleplay immersion",
+    "description": "OurDream.ai positions itself as a high-end alternative for those who find anime-style AI too 'cartoony.' The platform focuses heavily on high-fidelity, photorealistic image generation and a sophisticated LLM designed specifically for complex, multi-layered roleplay scenarios.",
+    "logo": "🌟",
+    "rating": 4.6,
+    "website": "https://ourdream.ai/",
+    "pricing": {
+      "free": true,
+      "starting": "$9.99/month",
+      "premium": "$19.99/month for Pro with unlimited messages, max-speed image generation, and higher credit allowance"
+    },
+    "whatMakesDifferent": [
+      "Ultra-Realistic Engine: One of the best image generators in the niche, focusing on realistic skin textures and lighting",
+      "Deep Memory System: Designed to remember long-term plot points and user preferences better than standard bots",
+      "'Dream' Scenarios: Allows users to generate specific high-quality 'moment' photos based on the current chat context",
+      "Community Gallery: A massive library of user-created realistic models that you can interact with instantly"
+    ],
+    "pros": [
+      "Industry-leading photorealism",
+      "Very strong 'memory' for long-term roleplay",
+      "Completely uncensored and private",
+      "Intuitive web interface that works well on mobile"
+    ],
+    "cons": [
+      "Image generation credits can run out quickly on lower tiers",
+      "Focuses more on realism than anime, which may not appeal to all users"
+    ],
+    "bestFit": "You prioritize visual realism and want an AI that can remember the details of a long-running story or 'relationship.'",
+    "affiliateUrl": "#",
+    "category": "Photorealistic",
+    "isEditorChoice": false,
+    "badge": "Best Realism"
+  },
+  {
+    "id": 14,
+    "name": "JustSext",
+    "slug": "justsext",
+    "tagline": "AI Girlfriends from Real OnlyFans Creators",
+    "bestFor": "Users who want direct, fast-paced, and unfiltered adult roleplay",
+    "description": "JustSext cuts straight to the point, focusing on the 'sexting' and adult roleplay aspect of AI companionship with AI companions powered by real OnlyFans creators. It is less about 'building a life' with an AI and more about high-intensity, uncensored interactions and specific fantasy fulfillment.",
+    "logo": "💬",
+    "rating": 4.4,
+    "website": "https://justsext.com/",
+    "pricing": {
+      "free": true,
+      "starting": "$14.99/month",
+      "premium": "Premium includes unlimited chat and full access to all characters. Credit packs available for one-off image generation."
+    },
+    "whatMakesDifferent": [
+      "Zero-Filter Guarantee: Built from the ground up to be 100% uncensored with no 'ethical guardrails' interrupting the flow",
+      "Rapid-Fire Chat: The AI is tuned for shorter, punchier responses typical of a real sexting conversation",
+      "Scenario-Based Starters: Features a 'Quick Start' menu where you can jump into specific fantasies or roles immediately",
+      "Mobile-First Design: The UI is stripped down and optimized to look and feel exactly like a messaging app"
+    ],
+    "pros": [
+      "Extremely easy to use with no setup required",
+      "Absolutely no 'preaching' or character breaks due to filters",
+      "High variety of archetypes",
+      "Very fast response times"
+    ],
+    "cons": [
+      "Not as visually customizable as other platforms",
+      "Limited long-term emotional 'bonding' features"
+    ],
+    "bestFit": "You want a straightforward, no-nonsense adult chat experience without the complexity of deep character creation or 'dating' mechanics.",
+    "affiliateUrl": "#",
+    "category": "Explicit Freedom",
+    "isEditorChoice": false,
+    "badge": "Most Direct"
   }
 ]
