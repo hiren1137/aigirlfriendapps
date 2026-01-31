@@ -54,6 +54,18 @@ const canonicalUrl = canonical || siteUrl;
     />
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDYD9VGBZX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BDYD9VGBZX");
+    </script>
   </head>
   <body>
     <!-- Animated Background -->
